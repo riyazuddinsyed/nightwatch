@@ -19,5 +19,7 @@ module.exports = (on, config) => {
   // and rename them if necessary
   config.env.TEST_CC = process.env.TEST_CC;
   config.env.TEST_CC_CVD = process.env.TEST_CC_CVD;
+  config.env.COOP_1_INCORP_NUM = process.env.COOP_1_INCORP_NUM;
+  config.env.COOP_1_PASSCODE = process.env.COOP_1_PASSCODE;
   return config;
 }
