@@ -19,11 +19,26 @@ describe('Coops end-to-end Test Script', function () {
 
    it('checks with the MVP DASHBOARD', function () {
       // tombstone
+      cy.get('div.entity-name').contains('SUNDUNE HOUSING CO-OPERATIVE')
+      cy.get('dd.incorp-number').contains(Cypress.env('COOP_1_INCORP_NUM'));
+
       //to do
+      cy.get('div').contains('File 2019 Annual Report').should('be.visible')
+      cy.get('div.v-btn__content').contains('File Now').should('be.visible')
+
       //filing history
+      cy.contains('You have no filing history').should('be.visible')
+
       //current address
+      cy.contains('Mailing Address').should('be.visible')
+
+      cy.contains('Delivery Address').should('be.visible')
+      
       //Current directors
+
       //edit buttons
+
+
       cy.get('#dashboardArticle > div > div > section:nth-child(1) > div > ul > li > div.v-expansion-panel__header > div.list-item > div.list-item__actions > button > div')
    })
 
