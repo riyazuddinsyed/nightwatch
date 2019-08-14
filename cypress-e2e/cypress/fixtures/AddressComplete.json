@@ -1,0 +1,17 @@
+{
+    "Items": [{
+        "Id": "CA|CP|B|27906",
+        "Text": "940 Blanshard St",
+        "Highlight": "0-3,4-13",
+        "Cursor": 0,
+        "Description": "Victoria, BC, V8W 3E6",
+        "Next": "Retrieve"
+    }, {
+        "Id": "CA|CP|B|10281116",
+        "Text": "940 Blanshard St",
+        "Highlight": "0-3,4-13",
+        "Cursor": 0,
+        "Description": "Victoria, BC, V8W 2H3",
+        "Next": "Retrieve"
+    }]
+}
