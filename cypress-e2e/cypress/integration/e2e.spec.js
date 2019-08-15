@@ -105,17 +105,32 @@ describe('Coops end-to-end Test Script', function () {
       cy.route('**/AddressComplete/**', 'fixture:AddressComplete.json').as('AddressComplete')
 
       cy.get('button').contains('Appoint New Director').click()   
-      cy.get('#directors > div.v-card.v-card--flat.v-sheet.theme--light > ul.list.new-director').within(($dir) => {
+      cy.get('#directors > div.v-card.v-card--flat.v-sheet.theme--light > ul.list.new-director').as('Appoint-Director-Form').within(($dir) => {
          cy.get('#new-director__first-name').type('Test').should('have.attr', 'required', 'required')
          cy.get('input[aria-label="Last Name"]').type('Test').should('have.attr', 'required', 'required')
          cy.get('input[aria-label="Street Address"]').clear().type('123 test street')
          cy.get('input[aria-label="Street Address"]').click()
          cy.get('input[aria-label="Additional Street Address (Optional)"]').clear().type('additional address info')
          cy.get('input[aria-label="City"]').clear().type('Victoria')
-         cy.get('div.v-select__slot').click()
+         cy.get('input[aria-label="Postal Code"]').clear().type('V8V 4K8')         
 
       })
-      cy.get('#app > div.v-menu__content.theme--light.menuable__content__active > div > div > div:nth-child(1) > a > div > div').click()
+
+      //Province
+      cy.get('@Appoint-Director-Form').within(() => {
+         cy.get('input[aria-label="Province"]').click( {force: true } )
+      }).then(function(){
+         cy.get('div.v-list__tile__title').contains('BC').scrollIntoView().click( {force: true } )
+      })
+
+      //Country
+      cy.get('@Appoint-Director-Form').within(() => {
+         cy.get('input[aria-label="Country"]').type('Canada')
+      }).then(function(){
+         cy.get('div.pcaflaglabel').contains('Canada').click()
+      })
+
+      
    
       // cy.get('#new-director__first-name').type('riyaz')
    
