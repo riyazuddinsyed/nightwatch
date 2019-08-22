@@ -1,9 +1,14 @@
+/// <reference types="Cypress" />
+
 describe('Coops end-to-end Test Script', function () {
     beforeEach(function(){
       Cypress.Cookies.defaults({
          whitelist: 'JSESSIONID'
-      });
 
+         //todo: block this from loading on the PayBC screen - https://github.com/cypress-io/cypress/issues/828
+         //https://code.jquery.com/jquery-1.12.0.min.js
+      });
+      
       cy.fixture('CP0001570').as('business')
       
     })
@@ -90,7 +95,7 @@ describe('Coops end-to-end Test Script', function () {
        cy.get('@agm-date').click()
 
        //base fee = $30 for AR
-       
+
  
     })
  
@@ -119,7 +124,7 @@ describe('Coops end-to-end Test Script', function () {
        cy.get('#annual-report-article > div > section:nth-child(2) > div > ul > li:nth-child(2) > div > div > div.meta-container__inner > div > div > div:nth-child(1)').contains('123 test street')
        cy.get('div').contains('Reset').should('be.visible')
     })
-
+   
     it('Appoints a director', function () {  
        //stubbing the response to save $$$
        cy.server() 
