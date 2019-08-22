@@ -88,6 +88,9 @@ describe('Coops end-to-end Test Script', function () {
          .click()
          .get('#agm-datepicker').should('be.visible') 
        cy.get('@agm-date').click()
+
+       //base fee = $30 for AR
+       
  
     })
  
