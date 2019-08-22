@@ -1,7 +1,8 @@
 {
 
     "identifier": "CP0001570",
-    "passcode": "795015460",
+	"passcode": "795015460",
+	"initialDirCount": 6,
 	"legalName": "SUNDUNE HOUSING CO-OPERATIVE",
 	"deliveryAddress": {
 		"streetAddress": "220 - 1651 COMMERCIAL DRIVE"		

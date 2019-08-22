@@ -62,24 +62,24 @@ describe('For The Standalone Change Of Address', function() {
         cy.get('div').contains('Reset').should('be.visible')
     })
 
-    it('checks with the certified button',function(){
+    it('completes certified section',function(){
         cy.get('#certified-by-textfield').type('TEST')
         cy.get('[type=checkbox]').click({force: true})
         cy.get('#coa-file-pay-btn').click()
     })
 
-    it('checks with the payment page',function(){
+    it('checks with the PayBC invoice screen',function(){
         cy.get('#main-content > h1').contains('Add Invoice(s) to your Cart to make payment')
-        cy.get('#PBCSCN005 > tbody > tr > td:nth-child(3)').contains(this.business.legalName)//change this
+        cy.get('#PBCSCN005 > tbody > tr > td:nth-child(3)').contains(this.business.legalName)
         cy.get('#paylistbutton').click()
     })
 
-    it('checks with the cart page',function(){
+    it('checks with the PayBC cart page',function(){
         cy.get('#creditForm > div > div.panel-heading > div:nth-child(1) > h3').contains('Credit Card Cart')
         cy.get('#credit_payBtn').click()     
     })
 
-    it('checks with the Payment information page',function(){
+    it('credit card page',function(){
         cy.get('#form-heading').contains('Enter Payment Information')
         cy.get('[name=trnCardNumber]').type('4030000010001234')
         cy.get('[name=trnCardCvd]').type('123')

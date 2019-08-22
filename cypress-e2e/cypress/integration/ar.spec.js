@@ -4,7 +4,7 @@ describe('Coops end-to-end Test Script', function () {
          whitelist: 'JSESSIONID'
       });
 
-      cy.fixture('CP0001570').as('business')
+      cy.fixture('CP0001867').as('business')
       
     })
 
@@ -54,7 +54,7 @@ describe('Coops end-to-end Test Script', function () {
        cy.get('#dashboardArticle > div > aside > section:nth-child(1) > div > ul > li:nth-child(2) > div.address > div.list-item__subtitle > ul > li:nth-child(1)').contains(this.business.deliveryAddress.streetAddress)
  
        //Current directors      
-       cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('have.length', 6)
+       cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('have.length', this.business.initialDirCount)
  
        //edit buttons
        cy.get('#btn-standalone-directors').should('be.enabled')
@@ -143,24 +143,24 @@ describe('Coops end-to-end Test Script', function () {
         cy.get('#director-3-cease-btn').should('contain','undo')
     })
 
-    it('Checks with the Certified block',function(){
+    it('completes certified section',function(){
         cy.get('#certified-by-textfield').type('TEST')
         cy.get('[type=checkbox]').click({force: true})
         cy.get('#ar-file-pay-btn').click()
     })
 
-    it('checks with the payment page',function(){
+    it('checks with the PayBC invoice screen',function(){
         cy.get('#main-content > h1').contains('Add Invoice(s) to your Cart to make payment')
         cy.get('#PBCSCN005 > tbody > tr > td:nth-child(3)').contains(this.business.legalName)
         cy.get('#paylistbutton').click()
     })
 
-    it('checks with the cart page',function(){
+    it('checks with the PayBC cart page',function(){
         cy.get('#creditForm > div > div.panel-heading > div:nth-child(1) > h3').contains('Credit Card Cart')
         cy.get('#credit_payBtn').click()     
     })
 
-    it('checks with the Payment information page',function(){
+    it('credit card page',function(){
         cy.get('#form-heading').contains('Enter Payment Information')
         cy.get('[name=trnCardNumber]').type('4030000010001234')
         cy.get('[name=trnCardCvd]').type('123')
@@ -184,8 +184,8 @@ describe('Coops end-to-end Test Script', function () {
       cy.contains('Delivery Address').should('be.visible')
       cy.get('#dashboardArticle > div > aside > section:nth-child(1) > div > ul > li:nth-child(2) > div.address > div.list-item__subtitle > ul > li:nth-child(1)').contains('123 test street')
 
-   //Confirm director count is still 6
-      cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('have.length', 6)
+   //Confirm director count is still the same
+      cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('have.length', this.business.initialDirCount)
       cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('contain', 'TEST TEST')
 
    //Confirm To Do list has been updated

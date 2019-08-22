@@ -1,7 +1,8 @@
 {
 
     "identifier": "CP0001430",
-    "passcode": "524590148",
+	"passcode": "524590148",
+	"initialDirCount": 8,
 	"legalName": "BENRYK MEWS HOUSING CO-OPERATIVE",
 	"deliveryAddress": {
 		"streetAddress": "123-160 Tycos Dr"		

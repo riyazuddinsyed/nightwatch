@@ -14,7 +14,7 @@ describe('Standalone Change of Director', function() {
         cy.get('button.sign-in-btn').click()
     })
 
-    it('checks with the Standalone COD',function() {
+    it('launches COD and appoints director',function() {
         cy.get('#btn-standalone-directors').click()
         cy.contains('Appoint New Director').click()
         cy.get('#directors > div.v-card.v-card--flat.v-sheet.theme--light > ul.list.new-director > li > div > div > form > div.meta-container__inner > form > div.form__row.three-column > div.v-input.item.v-text-field.v-text-field--box.v-text-field--enclosed.v-select.theme--light > div > div.v-input__slot > div.v-select__slot > div.v-select__selections').click()
@@ -34,29 +34,29 @@ describe('Standalone Change of Director', function() {
         })
     })
 
-    it('checks with the cease button for COD',function(){
+    it('ceases a director',function(){
         cy.get('#director-3-cease-btn').click()
         cy.get('#director-3-cease-btn').should('contain','undo')
     })
 
-    it('checks with the certified button for COD',function(){
+    it('completes certified section',function(){
         cy.get('#certified-by-textfield').type('TEST')
         cy.get('[type=checkbox]').click({force: true})
         cy.get('#cod-file-pay-btn').click()
     })
 
-    it('checks with the payment page for COD',function(){
+    it('checks with the PayBC invoice screen for COD',function(){
         cy.get('#main-content > h1').contains('Add Invoice(s) to your Cart to make payment')
         cy.get('#PBCSCN005 > tbody > tr > td:nth-child(3)').contains(this.business.legalName)
         cy.get('#paylistbutton').click()
     })
 
-    it('checks with the cart page for COD',function(){
+    it('checks with the PayBC cart page',function(){
         cy.get('#creditForm > div > div.panel-heading > div:nth-child(1) > h3').contains('Credit Card Cart')
         cy.get('#credit_payBtn').click()     
     })
 
-    it('checks with the Payment information page for COD',function(){
+    it('credit card page',function(){
         cy.get('#form-heading').contains('Enter Payment Information')
         cy.get('[name=trnCardNumber]').type('4030000010001234')
         cy.get('[name=trnCardCvd]').type('123')
@@ -73,8 +73,8 @@ describe('Standalone Change of Director', function() {
         cy.get('#btn-standalone-directors').should('be.enabled')
         cy.get('#btn-standalone-addresses').should('be.enabled')
   
-     //Confirm director count is still 7
-        cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('have.length', 7)
+     //Confirm director count is still the same
+        cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('have.length', this.business.initialDirCount)
         cy.get('#dashboardArticle > div > aside > section:nth-child(2) > div > ul').children().should('contain', 'TEST TEST2 TEST3')
    
      //Confirm Filing History has been updated and the current filing is expanded

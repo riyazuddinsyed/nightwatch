@@ -1,0 +1,14 @@
+{
+
+	"identifier": "CP0001867",
+	"passcode": "945817211",
+	"initialDirCount": 5,
+	"legalName": "THE KOOTENAY BAKERY CAFE COOPERATIVE",
+	"deliveryAddress": {
+		"streetAddress": "377 BAKER STREET"		
+	},
+	"mailingAddress": {
+		"streetAddress": "377 BAKER STREET"
+	}
+
+}
