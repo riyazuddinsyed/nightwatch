@@ -4,7 +4,7 @@ describe('Coops end-to-end Test Script', function () {
          whitelist: 'JSESSIONID'
       });
 
-      cy.fixture('CP0001867').as('business')
+      cy.fixture('CP0001570').as('business')
       
     })
 
