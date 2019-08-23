@@ -2,5 +2,6 @@
     "chromeWebSecurity": false,
     "watchForFileChanges": false,
     "video": false,
-    "defaultCommandTimeout": 10000
+    "defaultCommandTimeout": 10000,
+    "blacklistHosts": "code.jquery.com"
 }
