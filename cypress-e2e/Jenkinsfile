@@ -55,7 +55,7 @@ import groovy.json.JsonOutput
             stage("Run e2e script"){
                     sh '''
                          cd cypress-e2e
-                         node_modules/.bin/cypress run --spec "cypress/integration/ar.spec.js"                        
+                         node_modules/.bin/cypress run --browser chrome --spec "cypress/integration/ar.spec.js"                        
                     '''
             }
             
