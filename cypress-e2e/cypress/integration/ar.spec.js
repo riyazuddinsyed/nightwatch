@@ -1,12 +1,10 @@
 /// <reference types="Cypress" />
 
+
 describe('Coops end-to-end Test Script', function () {
     beforeEach(function(){
       Cypress.Cookies.defaults({
          whitelist: 'JSESSIONID'
-
-         //todo: block this from loading on the PayBC screen - https://github.com/cypress-io/cypress/issues/828
-         //https://code.jquery.com/jquery-1.12.0.min.js
       });
       
       cy.fixture('CP0001570').as('business')
@@ -158,6 +156,7 @@ describe('Coops end-to-end Test Script', function () {
     })
 
     it('checks with the PayBC invoice screen',function(){
+        //blockjQuery()
         cy.get('#main-content > h1').contains('Add Invoice(s) to your Cart to make payment')
         cy.get('#PBCSCN005 > tbody > tr > td:nth-child(3)').contains(this.business.legalName)
         cy.get('#paylistbutton').click()
