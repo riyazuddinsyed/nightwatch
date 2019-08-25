@@ -6,8 +6,6 @@
 	"test_settings": {
 		"default": {
 			"globals": {
-				"AuthPath": "http://auth-ui-1rdehl-dev.pathfinder.gov.bc.ca/",
-				"CoopsPath": "https://coops-dev.pathfinder.gov.bc.ca/"
 			},
 			"webdriver": {
 				"start_process": true,
