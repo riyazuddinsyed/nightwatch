@@ -14,6 +14,7 @@ module.exports={
         browser
         .click('#btn-standalone-addresses > div > span').pause(10000)
         .click('#reg-off-addr-change-btn > div > span')
+        .waitForElementVisible('body',1000)
 
         .click('[name=street-address]')
         .clearValue('[name=street-address]')
