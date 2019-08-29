@@ -37,7 +37,8 @@ module.exports={
     step4:function(browser){
         browser
         .waitForElementVisible('body',1000)
-        .click('#paylistbutton')
+        .useXpath()
+        .click('//*[@id="paylistbutton"]')
         .click('#credit_payBtn')
         .setValue('#frmPayment > table:nth-child(10) > tbody > tr:nth-child(10) > td:nth-child(2) > input[type=text]','4030000010001234').pause(1000)
         .setValue('#frmPayment > table:nth-child(10) > tbody > tr:nth-child(12) > td:nth-child(2) > input[type=text','123')
