@@ -36,10 +36,10 @@ module.exports={
     },
     step4:function(browser){
         browser
-        .click('#paylistbutton > span.hidden-xs')
+        .click('#paylistbutton')
         .click('#credit_payBtn')
-        .setValue('[name=trnCardNumber]','4030000010001234').pause(1000)
-        .setValue('[name=trnCardCvd]','123')
+        .setValue('#frmPayment > table:nth-child(10) > tbody > tr:nth-child(10) > td:nth-child(2) > input[type=text]','4030000010001234').pause(1000)
+        .setValue('#frmPayment > table:nth-child(10) > tbody > tr:nth-child(12) > td:nth-child(2) > input[type=text','123')
         .click('#frmPayment > table:nth-child(10) > tbody > tr:nth-child(13) > td > table > tbody > tr > td:nth-child(3)')
     }
 };
